@@ -1,0 +1,22 @@
+- Lambda Expressions 
+- Functional Interfaces 
+- Method References 
+- Optional 
+- Collectors (advanced)
+- FlatMap 
+- Map vs FlatMap
+- Parallel Streams 
+- Primitive Streams (IntStream, LongStream, DoubleStream)
+- Stream Pipelines 
+- Infinite Streams (Stream.iterate, Stream.generate)
+- Custom Collectors 
+- Stream Reduction (reduce)
+- Grouping and Partitioning (Collectors.groupingBy, partitioningBy)
+- Stream Short-circuiting (limit, skip, findFirst, anyMatch, etc.)
+- Stream vs Iterator 
+- Stream Performance and Lazy Evaluation 
+- Stream Debugging (peek)
+- File and IO Streams (Files.lines, etc.)
+- Collecting to Maps (Collectors.toMap)
+- Parallel vs Sequential Streams 
+- Stream API Limitations and Best Practices
