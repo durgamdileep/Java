@@ -42,6 +42,14 @@ public class Main {
          */
         List<String> words = Arrays.asList("stream", "java", "lambda", "function","viratabd", "code", "program");
 
+        String max = words.stream()
+                .max(Comparator.comparingInt(String::length)
+                        .thenComparing(Comparator.reverseOrder())
+                ).map(e-> e)
+                .orElse("");
+        System.out.println(max);
+
+
         Optional<String> max1 = words.stream()
                 .max(Comparator.comparingInt(i-> i.length()));
         System.out.println("Find the longest word in the list :");
@@ -93,6 +101,14 @@ public class Main {
                 "Functional programming is elegant"
         );
 
+
+        sentences.stream()
+                .flatMap(w-> Arrays.stream(w.split(" ")))
+                .map(a->a.trim().toLowerCase())
+                .distinct()
+                .collect(Collectors.toList())
+                .forEach(res-> System.out.print(res+" "));
+
         List<String> stringList = sentences.stream()
                 .map(sentence -> Arrays.asList(sentence.split(" ")))
                 .flatMap(wordse -> wordse.stream().map(word -> word.trim().toLowerCase()))
@@ -100,6 +116,8 @@ public class Main {
                 .collect(Collectors.toList());
         System.out.println(" Collect the final result into a List<String> :");
         System.out.println(stringList+" \n");
+
+
 
 
         /**
@@ -135,6 +153,14 @@ public class Main {
                 new Employee("David", 30, 80000),
                 new Employee("Eva", 35, 90000)
         );
+        employees.stream()
+                .collect(Collectors.groupingBy(
+                        emp-> emp.getAge(),
+                        Collectors.collectingAndThen(
+                                Collectors.toList(),
+                                list-> list.stream().sorted().limit(1).findFirst()
+                                )
+                ));
 
         Map<Integer, Optional<Employee>> collect1 = employees.stream()
                 .collect(Collectors.groupingBy(employee -> employee.getAge(),
